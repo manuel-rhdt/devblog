@@ -1,5 +1,6 @@
 import { injectGlobal } from 'styled-components';
 import styledNormalize from 'styled-normalize';
+import 'typeface-open-sans';
  
 injectGlobal`
   ${styledNormalize}
@@ -24,10 +25,18 @@ injectGlobal`
     padding: 50px 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @media only print {
+      text-align: justify;
+    }
   }
 
   img {
     max-width: 100%;
+  }
+
+  figure {
+    text-align: center;
   }
 
   .gatsby-highlight {
@@ -36,9 +45,17 @@ injectGlobal`
     margin: 15px -100px;
     padding: 0;
 
+    @media only print {
+      margin: 15px 3em;
+    }
+
     pre[class*="language-"] {
       margin: 0;
       padding: 25px 100px;
+
+      @media only print {
+        padding: 25px 1em;
+      }
     }
   }
 

@@ -24,7 +24,7 @@ module.exports = {
             options: {
               maxWidth: 700,
               linkImagesToOriginal: false,
-              wrapperStyle: 'margin: 15px -30px !important'
+              wrapperStyle: 'margin: 15px -30px !important',
             },
           },
           {
@@ -36,17 +36,12 @@ module.exports = {
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
+          "gatsby-remark-numbered-footnotes",
         ],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: TRACKING ID HERE,
-      },
-    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
   ],

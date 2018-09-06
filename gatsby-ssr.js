@@ -1,14 +1,13 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import { ServerStyleSheet, StyleSheetManager } from "styled-components";
+const server = require("react-dom/server");
+const sc = require("styled-components");
 
 exports.replaceRenderer = ({
   bodyComponent,
   replaceBodyHTMLString,
   setHeadComponents
 }) => {
-  const sheet = new ServerStyleSheet();
-  const bodyHTML = renderToString(bodyComponent);
+  const sheet = new sc.ServerStyleSheet();
+  const bodyHTML = server.renderToString(bodyComponent);
   replaceBodyHTMLString(bodyHTML);
   setHeadComponents([sheet.getStyleElement()]);
 };

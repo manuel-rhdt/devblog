@@ -12,6 +12,12 @@ const Card = styled.div`
     border-right: none;
     padding: 75px 15px;
   }
+
+  @media only print {
+    border-left: none;
+    border-right: none;
+    padding: 75px 3em;
+  }
 `;
 
 export default Card;

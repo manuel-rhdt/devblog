@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import userConfig from '../../config';
+import { graphql } from "gatsby"
 
 import Container from '../components/Container';
 import Card from '../components/Card';
@@ -11,12 +12,13 @@ import FeaturedImage from '../components/FeaturedImage';
 import Share from '../components/Share';
 import PageNav from '../components/PageNav';
 import Button from '../components/Button';
+import Layout from '../components/Layout';
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const author = get(this.props, 'data.site.siteMetadata.author');
-    const { previous, next } = this.props.pathContext;
+    const { previous, next } = this.props.pageContext;
    
     let url = '';
     if (typeof window !== `undefined`) {
@@ -24,39 +26,41 @@ class BlogPostTemplate extends React.Component {
     }
 
     return (
-      <Container>
-        <Helmet title={`${post.frontmatter.title} | ${author}`} />
-        <Card>
-          <ArticleHeader>
-            {post.frontmatter.featuredImage &&
-              <FeaturedImage sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
-            }
-            <h1>{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
-            <span></span>
-          </ArticleHeader>
-          <Article>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Article>
-          {userConfig.showShareButtons && (
-            <Share url={url} title={post.frontmatter.title} />
-          )}
-        </Card>
-        
-        <PageNav>
-          {previous && (
-            <Button to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Button>
-          )}
+      <Layout>
+        <Container>
+          <Helmet title={`${post.frontmatter.title} | ${author}`} />
+          <Card>
+            <ArticleHeader>
+              {post.frontmatter.featuredImage &&
+                <FeaturedImage sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
+              }
+              <h1>{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+              <span></span>
+            </ArticleHeader>
+            <Article>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </Article>
+            {userConfig.showShareButtons && (
+              <Share url={url} title={post.frontmatter.title} />
+            )}
+          </Card>
+          
+          <PageNav>
+            {previous && (
+              <Button to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Button>
+            )}
 
-          {next && (
-            <Button to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Button>
-          )}
-        </PageNav>     
-      </Container>
+            {next && (
+              <Button to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Button>
+            )}
+          </PageNav>     
+        </Container>
+      </Layout>
     )
   }
 }

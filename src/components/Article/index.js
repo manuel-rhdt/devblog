@@ -54,9 +54,19 @@ const Article = styled.article`
     margin: 25px 50px 15px;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    @media only screen and (max-width: 870px) {
+      margin: 25px 10px 15px;
+    }
+  }
+
   p {
     line-height: 1.7;
     margin: 15px 50px;
+
+    @media only screen and (max-width: 870px) {
+      margin: 15px 10px;
+    }
   }
 
   blockquote {
@@ -89,7 +99,7 @@ const Article = styled.article`
   }
 
   img {
-    margin: 15px 0;
+    margin: 15px auto;
   }
 `;
 
