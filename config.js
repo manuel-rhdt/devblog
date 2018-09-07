@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Dev Blog', // Required
   author: 'Manuel Reinhardt', // Required
-  tagline: 'Full-stack Web Developer',
+  tagline: 'Physicist and Hobby Developer',
   primaryColor: '#3498db', // Required
   showHeaderImage: false,
   showShareButtons: false,
