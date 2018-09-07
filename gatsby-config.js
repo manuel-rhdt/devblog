@@ -1,4 +1,4 @@
-const userConfig = require('./config');
+const userConfig = require('./config')
 
 module.exports = {
   pathPrefix: `/devblog`,
@@ -44,5 +44,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
   ],
 }

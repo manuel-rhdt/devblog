@@ -15,6 +15,7 @@
     "gatsby-paginate": "^1.0",
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-netlify": "^2.0.0-rc.2",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-preact": "next",
     "gatsby-plugin-react-helmet": "next",
