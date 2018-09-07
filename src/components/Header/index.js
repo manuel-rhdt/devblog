@@ -1,36 +1,45 @@
-import React from 'react';
-import userConfig from '../../../config';
+import React from 'react'
 
-import Container from '../Container';
-import HeaderImage from '../HeaderImage';
-import Social from '../Social';
-import H1 from '../H1';
-import P from './P';
-import Link from './Link';
-import Wrapper from './Wrapper';
+import Container from '../Container'
+import HeaderImage from '../HeaderImage'
+import H1 from '../H1'
+import P from './P'
+import Link from './Link'
+import Wrapper from './Wrapper'
+import { StaticQuery, graphql } from 'gatsby'
 
-function Header({ config }) {
-  const { author, tagline, social } = config;
-
+function Header() {
   return (
     <Container>
       <Wrapper>
-        {userConfig.showHeaderImage && (
-          <HeaderImage/>
-        )}
-        <H1><Link to="/">{author}</Link></H1>
-        <P>{tagline}</P>
-        {social &&
-          <Social
-            website={social.website}
-            github={social.github}
-            twitter={social.twitter}
-            linkedin={social.linkedin}
-          />
-        }
+        <StaticQuery
+          query={graphql`
+            {
+              site {
+                siteMetadata {
+                  showHeaderImage
+                  author
+                  tagline
+                  social {
+                    github
+                  }
+                }
+              }
+            }
+          `}
+          render={data => (
+            <>
+              {data.site.siteMetadata.showHeaderImage && <HeaderImage />}
+              <H1>
+                <Link to="/">{data.site.siteMetadata.author}</Link>
+              </H1>
+              <P>{data.site.siteMetadata.tagline}</P>
+            </>
+          )}
+        />
       </Wrapper>
-    </Container> 
-  );
+    </Container>
+  )
 }
 
-export default Header;
+export default Header

@@ -2,10 +2,7 @@ const userConfig = require('./config')
 
 module.exports = {
   pathPrefix: `/devblog`,
-  siteMetadata: {
-    title: userConfig.title,
-    author: userConfig.author,
-  },
+  siteMetadata: userConfig,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
