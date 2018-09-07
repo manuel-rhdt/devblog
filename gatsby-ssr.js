@@ -1,13 +1,7 @@
-const server = require("react-dom/server");
-const sc = require("styled-components");
+/**
+ * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/ssr-apis/
+ */
 
-exports.replaceRenderer = ({
-  bodyComponent,
-  replaceBodyHTMLString,
-  setHeadComponents
-}) => {
-  const sheet = new sc.ServerStyleSheet();
-  const bodyHTML = server.renderToString(bodyComponent);
-  replaceBodyHTMLString(bodyHTML);
-  setHeadComponents([sheet.getStyleElement()]);
-};
+// You can delete this file if you're not using it

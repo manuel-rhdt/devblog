@@ -8,5 +8,5 @@ module.exports = {
   postsPerPage: 5, // Required
   social: {
     github: 'https://github.com/manuel-rhdt',
-  }
-};
+  },
+}
